@@ -11,7 +11,7 @@ public class GlobalException {
 	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ModelAndView handleEntityNotFoundException(EntityNotFoundException ex) {
-		ModelAndView model = new ModelAndView("scrumboard");
+		ModelAndView model = new ModelAndView("/");
 		model.addObject("errMsg", ex.getMessage());
 		return model;
 	}
