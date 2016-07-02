@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" >
+	  
+	<head>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/lib/bootstrap.css}"/>
+		
+		<title>Scrum Board</title>
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Scrum Board</h1>
+			</div>
+		</div>
+		<div class="container">
+			<form method="post" th:object="${user}" action="home">				
+				<input class="form-control" type="text" placeholder="name" th:field="*{name}"/><br />
+				<input class="form-control" type="email" placeholder="email" th:field="*{email}"/><br />
+				<input class="btn btn-primary" type="submit" value="submit" />
+				<p th:if="${errMsg}" th:text="${errMsg}"></p>
+			</form>
+		</div>		
+	</body>
+</html>
