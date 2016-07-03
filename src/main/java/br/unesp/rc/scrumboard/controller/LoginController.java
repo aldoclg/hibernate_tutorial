@@ -29,12 +29,13 @@ public class LoginController {
     }
 	
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
-	public String enter(@Valid User user) {
+	public String enter(Model model, @Valid User user) {
 		System.out.print("\n" + user);
 		if (userRepo.findOne(user.getEmail()) != null) {
 			return "/home";
 		} else {
-			throw new EntityNotFoundException(user.getEmail() + " not exits...");
+			model.addAttribute("errMsg", "Email not found...");
+			return "login";
 		}	
 	}
 }

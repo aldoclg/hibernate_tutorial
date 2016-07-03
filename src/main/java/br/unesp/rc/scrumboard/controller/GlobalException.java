@@ -11,8 +11,8 @@ public class GlobalException {
 	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ModelAndView handleEntityNotFoundException(EntityNotFoundException ex) {
-		ModelAndView model = new ModelAndView("/");
-		model.addObject("errMsg", ex.getMessage());
+		ModelAndView model = new ModelAndView("error/404");
+		
 		return model;
 	}
 
